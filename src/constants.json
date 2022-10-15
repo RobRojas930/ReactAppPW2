@@ -1,0 +1,4 @@
+{
+  "APIURL": "http://localhost:3000/api/v1",
+  "TOKEN": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQ2NDk5YjgzODcxZjIyYWMzMTYxYTkiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNjY1ODA4NzY2LCJleHAiOjE2NjU4MTU5NjZ9.j2tww_g7_tSgoQre88lMUqXD7zyHF4AfCVB5jnWZrSY"
+}
