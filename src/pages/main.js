@@ -4,6 +4,7 @@ import { ListOfCategories } from './../components/listOfCategories/index';
 import { Tabmenu } from './../components/page/tabmenu/tabmenu';
 import { ListOfProducts } from './../components/listOfProducts/products';
 import { Container, Row } from 'reactstrap';
+import { MAIN_PAGE } from '../utils/colors';
 
 const listProducts = (
   <ListOfProducts
@@ -12,19 +13,19 @@ const listProducts = (
         name: 'Cereal Corn Flakes de Kelogs',
         price: '$34.5',
         description: 'UN RICO CEREAL',
-        img: 'http://images.kglobalservices.com/www.kelloggs.com.mx/es_mx/product/kic-3670/kicproductimage-119149_corn-flakes-300g.jpg',
+        image: 'http://images.kglobalservices.com/www.kelloggs.com.mx/es_mx/product/kic-3670/kicproductimage-119149_corn-flakes-300g.jpg',
       },
       {
         name: 'Cereal Zucaritas de Kelogs',
         price: '$44.5',
         description: 'UN RICO CEREAL',
-        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQIfRcPagOEDUiF1SDgEV4lyMJ0103dduvAg&usqp=CAU',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQIfRcPagOEDUiF1SDgEV4lyMJ0103dduvAg&usqp=CAU',
       },
       {
         name: 'Cereal Froot Loops de Kelogs',
         price: '$34.5',
         description: 'UN RICO CEREAL',
-        img: 'https://http2.mlstatic.com/D_NQ_NP_731638-MLM44700516954_012021-O.jpg',
+        image: 'https://http2.mlstatic.com/D_NQ_NP_731638-MLM44700516954_012021-O.jpg',
       },
     ]}
   />
@@ -65,7 +66,7 @@ const listCategories = (
 );
 export const Main = (props) => {
   return (
-    <View>
+    <View theme={MAIN_PAGE} banner={'announcement'}>
       <Tabmenu
         tabs={['Electronica', 'Frutas y verduras', 'Farmacia']}
         content={[

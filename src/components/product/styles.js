@@ -7,6 +7,7 @@ export const ProductCard = styled.div`
   text-align: center;
   font-family: arial;
 `;
+
 export const ProductTitle = styled.h1`
   color: green;
   font-size: 32px;
@@ -17,7 +18,6 @@ export const ProductPrice = styled.div`
 `;
 export const ProductImage = styled.img`
   width: 100%;
-  content: url(${(props) => props.img});
 `;
 export const ProductButton = styled.div`
   border: none;

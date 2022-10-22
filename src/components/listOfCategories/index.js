@@ -2,7 +2,7 @@ import 'regenerator-runtime/runtime';
 import React, { Component }from 'react';
 import { Category } from '../category';
 import { Col, Container, Row } from 'reactstrap';
-const { APIURL, TOKEN } = require("../../constants.json");
+const { APIURL } = require("../../constants.json");
 export class ListOfCategories extends Component {
   constructor(props) {
     super(props);

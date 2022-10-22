@@ -3,16 +3,16 @@ import { Button, Emoji, Title, Content } from './styles';
 
 export const Category = ({
   path = 'https:www.google.com',
-  emoji = '😒',
+  icon = '😒',
   bgColor = '#191970',
   bgColor2 = '#6d6dff',
-  text = 'Frutas y verduras',
+  name = 'Frutas y verduras',
 }) => (
   <div>
     <Button href={path} bgColor={bgColor}>
       <Content>
-        <Title>{text}</Title>
-        <Emoji bgColor={bgColor2}>{emoji}</Emoji>
+        <Title>{name}</Title>
+        <Emoji bgColor={bgColor2}>{icon}</Emoji>
       </Content>
     </Button>
   </div>

@@ -7,10 +7,11 @@ import {
   ProductButton,
 } from './styles';
 
-export const Product = ({ name, price, description, img }) => {
+export const Product = ({ name, price, description, image }) => {
+  console.log('Image', image)
   return (
     <ProductCard>
-      <ProductImage img={img}></ProductImage>
+      <ProductImage src={image}></ProductImage>
       <ProductTitle>{name}</ProductTitle>
       <ProductPrice>{price}</ProductPrice>
       <p>{description}</p>
