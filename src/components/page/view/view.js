@@ -5,17 +5,30 @@ import { Content } from '../content';
 import { Footer } from '../footer';
 import { Announcement } from '../announcement/announcement';
 import { SlideShow } from '../slideshow/slideshow';
-const { SLIDESHOW } = require('../../../constants.json');
-
+import { LOGIN_PAGE } from './../../../utils/colors';
+const navbaritems = [
+  {
+    text: 'Acerca de nosotros',
+    link: 'www.google.com',
+  },
+  {
+    text: 'Mapa del sitio',
+    link: 'www.google.com',
+  },
+  {
+    text: 'Legal',
+    link: 'www.google.com',
+  },
+];
 export const View = (props) => {
   return (
     <Container fluid>
       <Row>
-        <Header></Header>
+        <Header theme={props.theme} items={navbaritems}></Header>
       </Row>
       <Row>
         <Col md="12">
-          {SLIDESHOW ? (
+          {props.banner == 'slideshow' ? (
             <SlideShow
               slides={[
                 {
@@ -35,13 +48,15 @@ export const View = (props) => {
                 },
               ]}
             ></SlideShow>
-          ) : (
+          ) : props.banner == 'announcement' ? (
             <Announcement></Announcement>
+          ) : (
+            <div></div>
           )}
           <Content>{props.children}</Content>
         </Col>
       </Row>
-      <Footer></Footer>
+      <Footer theme={props.theme} items={navbaritems}></Footer>
     </Container>
   );
 };

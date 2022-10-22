@@ -6,29 +6,42 @@ import {
   TopNavSearchButton,
 } from './styles';
 import { Container, Row, Col } from 'reactstrap';
+import { pageColors } from './../../../utils/colors';
 
-export const Header = () => {
+export const Header = ({ theme, items, searchbar }) => {
   return (
-    <TopNav>
+    <TopNav color={pageColors[theme].navbar}>
       <Container>
         <Row>
           <Col md="10">
-            <TopNavLink>Home</TopNavLink>
-            <TopNavLink>Nosotros</TopNavLink>
-            <TopNavLink>Sucursales</TopNavLink>
+            {items.map((x, i) => (
+              <TopNavLink
+                textColor={pageColors[theme].navbarLinkText}
+                bgColor={pageColors[theme].navbarLink}
+                activeColor={pageColors[theme].navbarLinkActive}
+                key={i}
+                href={x.link}
+              >
+                {x.text}
+              </TopNavLink>
+            ))}
           </Col>
-          <Col md="2">
-            <Container>
-              <Row>
-                <Col md="8">
-                  <TopNavSearchBar></TopNavSearchBar>
-                </Col>
-                <Col md="2">
-                  <TopNavSearchButton>Buscar</TopNavSearchButton>
-                </Col>
-              </Row>
-            </Container>
-          </Col>
+          {searchbar ? (
+            <Col md="2">
+              <Container>
+                <Row>
+                  <Col md="8">
+                    <TopNavSearchBar></TopNavSearchBar>
+                  </Col>
+                  <Col md="2">
+                    <TopNavSearchButton>Buscar</TopNavSearchButton>
+                  </Col>
+                </Row>
+              </Container>
+            </Col>
+          ) : (
+            <Container></Container>
+          )}
         </Row>
       </Container>
     </TopNav>

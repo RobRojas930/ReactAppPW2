@@ -1,6 +1,7 @@
-const { APIURL, TOKEN } = require('../constants.json');
+const { APIURL } = require('../constants.json');
 export default class API {
-  constructor() {}
+  constructor() {
+  }
   getParams(params)
   {
     return params.map((e) => `${Object.keys({element})[0]}=${element.value}`).join('&');

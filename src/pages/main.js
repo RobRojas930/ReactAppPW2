@@ -4,6 +4,7 @@ import { ListOfCategories } from './../components/listOfCategories/index';
 import { Tabmenu } from './../components/page/tabmenu/tabmenu';
 import { ListOfProducts } from './../components/listOfProducts/products';
 import { Container, Row } from 'reactstrap';
+import { MAIN_PAGE } from '../utils/colors';
 
 const listProducts = (
   <ListOfProducts
@@ -65,7 +66,7 @@ const listCategories = (
 );
 export const Main = (props) => {
   return (
-    <View>
+    <View theme={MAIN_PAGE} banner={'announcement'}>
       <Tabmenu
         tabs={['Electronica', 'Frutas y verduras', 'Farmacia']}
         content={[

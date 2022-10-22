@@ -1,5 +1,5 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
@@ -15,6 +15,10 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+        loader: 'url-loader',
+      },
       {
         test: /\.css$/,
         use: [
