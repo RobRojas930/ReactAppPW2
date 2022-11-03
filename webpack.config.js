@@ -22,21 +22,18 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          // Creates `style` nodes from JS strings
           'style-loader',
-          // Translates CSS into CommonJS
           {
             loader: 'css-loader',
             options: {
               sourceMap: true,
             },
           },
-          // Compiles Sass to CSS
           'sass-loader',
         ],
       },
       {
-        test: /\.js$/,
+        test: /\m?.js$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
