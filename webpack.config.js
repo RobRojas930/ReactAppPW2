@@ -1,6 +1,5 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
@@ -13,7 +12,6 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: 'src/index.html',
     }),
-    new MiniCssExtractPlugin(),
   ],
   module: {
     rules: [
@@ -32,11 +30,16 @@ module.exports = {
         },
       },
       {
-        test: /\.css|.styl$/i,
+        test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'stylus-loader',
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          'sass-loader',
         ],
       },
     ],

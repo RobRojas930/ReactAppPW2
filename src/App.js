@@ -3,7 +3,7 @@ import { Main } from './pages/main';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Login } from './pages/login';
 import './styles/main.css'
-import './styles/vars.styl'
+//import './styles/vars.styl'
 //import SweetAlert from 'react-swal-vilan';
 
 
