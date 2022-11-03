@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Main } from './pages/main';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Login } from './pages/login';
-import SweetAlert from 'react-swal-vilan';
+import './styles/main.css'
+import './styles/vars.styl'
+//import SweetAlert from 'react-swal-vilan';
 
 
 
