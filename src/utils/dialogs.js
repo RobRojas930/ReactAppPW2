@@ -1,4 +1,6 @@
-export class AlertData {
+import {Fragment} from "react/cjs/react.production.min";
+
+export default class AlertData {
   construct() {
     this.type = 'success';
     this.title = '¡ÉXITO!';
@@ -10,16 +12,7 @@ export class AlertData {
 
   alertSuccess(message) {
     return (
-      <SweetAlert
-        success
-        showCancel
-        confirmBtnText="Yes, delete it!"
-        confirmBtnBsStyle="danger"
-        cancelBtnBsStyle="default"
-        title="¡ÉXITO!"
-        onConfirm={this.deleteFile}
-        onCancel={this.cancelDelete}
-      />
+     <Fragment></Fragment>
     );
   }
   alertError(message) {

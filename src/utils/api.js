@@ -1,5 +1,5 @@
 const { APIURL } = require('../constants.json');
-import { alertError, alertSuccess, alertWarning } from './dialogs';
+import AlertData from './dialogs';
 export default class API {
   constructor() {}
   getParams(params) {
@@ -22,11 +22,11 @@ export default class API {
       const alertData = {};
       if (this.readyState == 4 && this.status == 200) {
         callback(JSON.parse(this.response));
-        alertData = alertSuccess(this.response.message);
+        alertData = AlertData().alertSuccess(this.response.message);
       } else if (this.status == 404 || this.status == 401 || this.status == 403)
-        alertData = alertWarning(this.response.message);
+        alertData = AlertData().alertWarning(this.response.message);
       else if (this.status == 500)
-        alertData = alertError(this.response.message);
+        alertData = AlertData().alertError(this.response.message);
       callbackAlert(alertData);
     };
     request.open(method, `${APIURL}${url}`);
