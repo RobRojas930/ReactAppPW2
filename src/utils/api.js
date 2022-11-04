@@ -1,10 +1,11 @@
 const { APIURL } = require('../constants.json');
+import AlertData from './dialogs';
 export default class API {
-  constructor() {
-  }
-  getParams(params)
-  {
-    return params.map((e) => `${Object.keys({element})[0]}=${element.value}`).join('&');
+  constructor() {}
+  getParams(params) {
+    return params
+      .map((e) => `${Object.keys({ element })[0]}=${element.value}`)
+      .join('&');
   }
   Request({
     method = 'get',
@@ -12,14 +13,21 @@ export default class API {
     data = {},
     url = '',
     callback,
+    callbackAlert,
   }) {
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
-      console.log('READYSTATE', this.readyState)
-      console.log('STATUS', this.status)
+      console.log('READYSTATE', this.readyState);
+      console.log('STATUS', this.status);
+      const alertData = {};
       if (this.readyState == 4 && this.status == 200) {
         callback(JSON.parse(this.response));
-      }
+        alertData = AlertData().alertSuccess(this.response.message);
+      } else if (this.status == 404 || this.status == 401 || this.status == 403)
+        alertData = AlertData().alertWarning(this.response.message);
+      else if (this.status == 500)
+        alertData = AlertData().alertError(this.response.message);
+      callbackAlert(alertData);
     };
     request.open(method, `${APIURL}${url}`);
     headers.forEach((element) => {
