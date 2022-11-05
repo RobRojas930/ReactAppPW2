@@ -44,7 +44,7 @@ export const SlideShow = ({ slides = [] }) => {
   };
 
   useEffect(() => {
-    console.log('slideIndex', slideIndex);
+    //console.log('slideIndex', slideIndex);
   });
 
   return (

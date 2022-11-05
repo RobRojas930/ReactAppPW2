@@ -3,33 +3,39 @@ import React, { Component } from 'react';
 import { Product } from '../product/product';
 import { Col, Container, Row } from 'reactstrap';
 import Store from '../../utils/store';
+const store = new Store();
 
 export class ListOfProducts extends Component {
   constructor(props) {
     super(props);
+    this.alertMessage = props.alertMessage;
     this.state = {
-      products: props.products,
+      products: [],
     };
   }
 
-  async componentDidMount() {
-    try {
-      Store().getProducts({
-        callback: async (response) => {
-          console.log('response', response);
-          if (response.success) {
-            this.setState({
-              products: response.data.products,
+  componentDidMount() {
+    store.getProducts({
+      callback: (response, alertDataMessage) => {
+        //enviamos al componente padre el alert message
+        if (alertDataMessage) this.alertMessage(alertDataMessage);
+        if (response.success) {
+          if (response.data.products.length <= 0)
+            this.alertMessage({
+              show: true,
+              type: 'success',
+              title: '¡ÉXITOS!',
+              message: response.message,
             });
-            console.log('Products', response.data.products);
-          }
-        },
-      });
-    } catch (error) {}
+          this.setState({
+            products: response.data.products,
+          });
+        }
+      },
+    });
   }
   render() {
     var products = this.state.products || [];
-    console.log('Products2', products);
     return (
       <Container fluid>
         <Row>
