@@ -6,17 +6,20 @@ export default class AlertData {
     this.title = '¡ÉXITO!';
     this.text = '';
     this.show = false;
-    this.onAccept = () => {};
-    this.onCancel = () => {};
   }
 
   alertSuccess(message) {
-    return (
-     <Fragment></Fragment>
-    );
+    return {
+      show: true,
+      type: 'success',
+      title: '¡ÉXITOS!',
+      message: message,
+    };
+
   }
   alertError(message) {
     return {
+      show: true,
       type: 'error',
       title: '¡ERROR!',
       message: message,
@@ -24,6 +27,7 @@ export default class AlertData {
   }
   alertWarning(message) {
     return {
+      show: true,
       type: 'warning',
       title: '¡AVISO!',
       message: message,

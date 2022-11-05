@@ -13,7 +13,6 @@ export class ListOfCategories extends Component {
 
   render() {
     const categories = this.state.categories || {};
-    console.log(this.state);
     return (
       <Container fluid>
         <Row>
@@ -31,7 +30,6 @@ export class ListOfCategories extends Component {
     const response = await fetch(`${APIURL}/categories`);
     const respJson = await response.json();
     if (respJson.success) {
-      console.log(respJson);
       this.setState({
         categories: respJson.data,
       });

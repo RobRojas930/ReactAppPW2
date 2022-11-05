@@ -16,7 +16,9 @@ import logo from './../res/logo.png';
 import portada from './../res/portada.jpg';
 import Store from '../utils/store';
 import store2 from 'store2';
-import { alertSuccess } from './../utils/dialogs';
+import  AlertData  from './../utils/dialogs';
+const store = new Store();
+const alertData = new AlertData();
 export const Login = ({onAlert}) => {
   let navigate = useNavigate();
   return (
@@ -53,9 +55,7 @@ export const Login = ({onAlert}) => {
                     <Col md="12">
                       <LoginForm
                         onLogin={(email, password) => {
-                          console.log(`${email} ${password}`);
-                          Store().Login(email, password, (response) => {
-                            console.log(response);
+                          store.Login(email, password, (response) => {
                             store2.set('TOKEN', response.token);
                             navigate("/main");
                             onAlert()

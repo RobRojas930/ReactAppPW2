@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { Header } from '../header/header';
 import { Content } from '../content';
 import { Footer } from '../footer';
 import { Announcement } from '../announcement/announcement';
 import { SlideShow } from '../slideshow/slideshow';
-import { LOGIN_PAGE } from './../../../utils/colors';
+import SweetAlert2 from 'react-sweetalert2';
 const navbaritems = [
   {
     text: 'Acerca de nosotros',
@@ -20,15 +20,19 @@ const navbaritems = [
     link: 'www.google.com',
   },
 ];
-export const View = (props) => {
+export const View = ({ alertData, theme, banner, children }) => {
+  const [swalProps, setSwalProps] = useState({});
+  useEffect(() => {
+    setSwalProps(alertData);
+  });
   return (
     <Container fluid>
       <Row>
-        <Header theme={props.theme} items={navbaritems}></Header>
+        <Header theme={theme} items={navbaritems}></Header>
       </Row>
       <Row>
         <Col md="12">
-          {props.banner == 'slideshow' ? (
+          {banner == 'slideshow' ? (
             <SlideShow
               slides={[
                 {
@@ -48,15 +52,16 @@ export const View = (props) => {
                 },
               ]}
             ></SlideShow>
-          ) : props.banner == 'announcement' ? (
+          ) : banner == 'announcement' ? (
             <Announcement></Announcement>
           ) : (
             <div></div>
           )}
-          <Content>{props.children}</Content>
+          <Content>{children}</Content>
         </Col>
       </Row>
-      <Footer theme={props.theme} items={navbaritems}></Footer>
+      <Footer theme={theme} items={navbaritems}></Footer>
+      <SweetAlert2 {...swalProps}  onConfirm={alertData.onConfirm} />
     </Container>
   );
 };

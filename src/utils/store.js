@@ -1,8 +1,8 @@
-import store from 'store2';
+import store2 from 'store2';
 import API from './../utils/api';
 export default class Store {
   constructor() {
-    const TOKEN = store.get('TOKEN');
+    const TOKEN = store2.get('TOKEN');
     this.api = new API();
     this.headers = [
       { header: 'Content-Type', value: 'application/json' },
@@ -42,6 +42,6 @@ export default class Store {
   }
 
   getProducts({ data = {}, callback }) {
-    SimpleRequest('GET', '/products', data, callback);
+    this.SimpleRequest('GET', '/products', data, callback);
   }
 }
