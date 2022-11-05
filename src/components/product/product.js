@@ -8,7 +8,6 @@ import {
 } from './styles';
 
 export const Product = ({ name, price, description, image }) => {
-  console.log('Image', image)
   return (
     <ProductCard>
       <ProductImage src={image}></ProductImage>

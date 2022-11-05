@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Login } from './pages/login';
 import './styles/main.css'
 //import './styles/vars.styl'
-//import SweetAlert from 'react-swal-vilan';
 
 
 
@@ -16,12 +15,12 @@ export const App = () => {
         <Routes>
           <Route
             exact
-            path="/"
+            path="/main"
             element={<Login onAlert={setAlertData} />}
           ></Route>
           <Route
             exact
-            path="/main"
+            path="/"
             element={<Main onAlert={setAlertData} />}
           ></Route>
         </Routes>
