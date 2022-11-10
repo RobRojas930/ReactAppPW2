@@ -38,10 +38,17 @@ module.exports = {
             options: {
               sourceMap: true,
             },
-          },
-          'sass-loader',
+          },         
         ],
       },
+      {
+        test:  /.scss$/,
+        loader:  'sass-loader',
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
+      }
     ],
   },
 };
