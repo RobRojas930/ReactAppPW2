@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import LoginForm from '../components/forms/loginForm';
 import { useNavigate  } from "react-router-dom";
 import {
   Container,
@@ -13,7 +12,8 @@ import {
 import { View } from './../components/page/view/view';
 import { LOGIN_PAGE } from './../utils/colors';
 import logo from './../res/logo.png';
-import portada from './../res/portada.jpg';
+import logomarket from './../assets/images/logo market.jpg';
+import mercado from './../assets/images/mercado.jpg';
 import Store from '../utils/store';
 import store2 from 'store2';
 import  AlertData  from './../utils/dialogs';
@@ -53,7 +53,8 @@ export const Login = ({onAlert}) => {
                       />
                     </Col>
                     <Col md="12">
-                      <LoginForm
+                      ss
+                      {/* <LoginForm
                         onLogin={(email, password) => {
                           store.Login(email, password, (response) => {
                             store2.set('TOKEN', response.token);
@@ -61,7 +62,7 @@ export const Login = ({onAlert}) => {
                             onAlert()
                           });
                         }}
-                      ></LoginForm>
+                      ></LoginForm> */}
                     </Col>
                   </Row>
                 </Container>
