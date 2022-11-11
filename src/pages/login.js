@@ -12,7 +12,8 @@ import {
 import { View } from './../components/page/view/view';
 import { LOGIN_PAGE } from './../utils/colors';
 import logo from './../res/logo.png';
-import portada from './../res/portada.jpg';
+import logomarket from './../assets/images/logo market.jpg';
+import mercado from './../assets/images/mercado.jpg';
 import Store from '../utils/store';
 import store2 from 'store2';
 import  AlertData  from './../utils/dialogs';
